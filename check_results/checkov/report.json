@@ -1,0 +1,1615 @@
+{
+    "check_type": "terraform",
+    "results": {
+        "passed_checks": [
+            {
+                "check_id": "CKV_AWS_41",
+                "bc_check_id": "BC_AWS_SECRETS_5",
+                "check_name": "Ensure no hard coded AWS access key and secret key exists in provider",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        11,
+                        "provider \"aws\" {\n"
+                    ],
+                    [
+                        12,
+                        "  region = \"us-east-1\"\n"
+                    ],
+                    [
+                        13,
+                        "}"
+                    ]
+                ],
+                "file_path": "/examples/providers.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/examples/providers.tf",
+                "repo_file_path": "/examples/providers.tf",
+                "file_line_range": [
+                    11,
+                    13
+                ],
+                "resource": "aws.default",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.provider.aws.credentials",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/secrets-policies/bc-aws-secrets-5",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/examples/providers.tf"
+            },
+            {
+                "check_id": "CKV_AWS_130",
+                "bc_check_id": "BC_AWS_NETWORKING_53",
+                "check_name": "Ensure VPC subnets do not assign public IP by default",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "map_public_ip_on_launch"
+                    ]
+                },
+                "code_block": [
+                    [
+                        1,
+                        "resource \"aws_subnet\" \"private\" {\n"
+                    ],
+                    [
+                        2,
+                        "  vpc_id     = aws_vpc.main.id\n"
+                    ],
+                    [
+                        3,
+                        "  cidr_block = \"172.31.1.0/24\"\n"
+                    ],
+                    [
+                        4,
+                        "\n"
+                    ],
+                    [
+                        5,
+                        "  tags = {\n"
+                    ],
+                    [
+                        6,
+                        "    Name = \"Main\"\n"
+                    ],
+                    [
+                        7,
+                        "  }\n"
+                    ],
+                    [
+                        8,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/subnets.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/subnets.tf",
+                "repo_file_path": "/subnets.tf",
+                "file_line_range": [
+                    1,
+                    8
+                ],
+                "resource": "aws_subnet.private",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.SubnetPublicIP",
+                "fixed_definition": null,
+                "entity_tags": {
+                    "Name": "Main"
+                },
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-vpc-subnets-do-not-assign-public-ip-by-default",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/subnets.tf"
+            },
+            {
+                "check_id": "CKV_AWS_130",
+                "bc_check_id": "BC_AWS_NETWORKING_53",
+                "check_name": "Ensure VPC subnets do not assign public IP by default",
+                "check_result": {
+                    "result": "PASSED",
+                    "evaluated_keys": [
+                        "map_public_ip_on_launch"
+                    ]
+                },
+                "code_block": [
+                    [
+                        10,
+                        "resource \"aws_subnet\" \"public\" {\n"
+                    ],
+                    [
+                        11,
+                        "  vpc_id     = aws_vpc.main.id\n"
+                    ],
+                    [
+                        12,
+                        "  cidr_block = \"172.31.2.0/24\"\n"
+                    ],
+                    [
+                        13,
+                        "\n"
+                    ],
+                    [
+                        14,
+                        "  tags = {\n"
+                    ],
+                    [
+                        15,
+                        "    Name = \"Main\"\n"
+                    ],
+                    [
+                        16,
+                        "  }\n"
+                    ],
+                    [
+                        17,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/subnets.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/subnets.tf",
+                "repo_file_path": "/subnets.tf",
+                "file_line_range": [
+                    10,
+                    17
+                ],
+                "resource": "aws_subnet.public",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.resource.aws.SubnetPublicIP",
+                "fixed_definition": null,
+                "entity_tags": {
+                    "Name": "Main"
+                },
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-vpc-subnets-do-not-assign-public-ip-by-default",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/subnets.tf"
+            },
+            {
+                "check_id": "CKV2_AWS_35",
+                "bc_check_id": "BC_AWS_NETWORKING_77",
+                "check_name": "AWS NAT Gateways should be utilized for the default route",
+                "check_result": {
+                    "result": "PASSED",
+                    "entity": {
+                        "aws_route_table": {
+                            "public": {
+                                "__end_line__": 11,
+                                "__start_line__": 2,
+                                "tags": [
+                                    {
+                                        "Name": "format(\"%s-public-rt\",my-vpc)",
+                                        "Environment": "dev",
+                                        "Project": "my-project"
+                                    }
+                                ],
+                                "vpc_id": [
+                                    "aws_vpc.main.id"
+                                ],
+                                "__address__": "aws_route_table.public"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "route/*/cidr_block",
+                        "instance_id",
+                        "route/*/instance_id",
+                        "destination_cidr_block"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"aws_route_table\" \"public\" {\n"
+                    ],
+                    [
+                        3,
+                        "  vpc_id = aws_vpc.main.id\n"
+                    ],
+                    [
+                        4,
+                        "\n"
+                    ],
+                    [
+                        5,
+                        "  tags = merge(\n"
+                    ],
+                    [
+                        6,
+                        "    {\n"
+                    ],
+                    [
+                        7,
+                        "      \"Name\" = format(\"%s-public-rt\", var.vpc_name, )\n"
+                    ],
+                    [
+                        8,
+                        "    },\n"
+                    ],
+                    [
+                        9,
+                        "    var.tags,\n"
+                    ],
+                    [
+                        10,
+                        "  )\n"
+                    ],
+                    [
+                        11,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/route.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf",
+                "repo_file_path": "/route.tf",
+                "file_line_range": [
+                    2,
+                    11
+                ],
+                "resource": "aws_route_table.public",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {
+                    "Name": "format(\"%s-public-rt\",my-vpc)",
+                    "Environment": "dev",
+                    "Project": "my-project"
+                },
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-nat-gateways-are-utilized-for-the-default-route",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf",
+                "breadcrumbs": {
+                    "tags": [
+                        {
+                            "type": "variable",
+                            "name": "tags",
+                            "path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV2_AWS_35",
+                "bc_check_id": "BC_AWS_NETWORKING_77",
+                "check_name": "AWS NAT Gateways should be utilized for the default route",
+                "check_result": {
+                    "result": "PASSED",
+                    "entity": {
+                        "aws_route": {
+                            "public_internet_gateway": {
+                                "__end_line__": 25,
+                                "__start_line__": 17,
+                                "destination_cidr_block": [
+                                    "0.0.0.0/0"
+                                ],
+                                "gateway_id": [
+                                    "aws_internet_gateway.this.id"
+                                ],
+                                "route_table_id": [
+                                    "aws_route_table.public.id"
+                                ],
+                                "timeouts": [
+                                    {
+                                        "create": [
+                                            "5m"
+                                        ]
+                                    }
+                                ],
+                                "__address__": "aws_route.public_internet_gateway"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "route/*/cidr_block",
+                        "instance_id",
+                        "route/*/instance_id",
+                        "destination_cidr_block"
+                    ]
+                },
+                "code_block": [
+                    [
+                        17,
+                        "resource \"aws_route\" \"public_internet_gateway\" {\n"
+                    ],
+                    [
+                        18,
+                        "  route_table_id         = aws_route_table.public.id\n"
+                    ],
+                    [
+                        19,
+                        "  destination_cidr_block = \"0.0.0.0/0\"\n"
+                    ],
+                    [
+                        20,
+                        "  gateway_id             = aws_internet_gateway.this.id\n"
+                    ],
+                    [
+                        21,
+                        "\n"
+                    ],
+                    [
+                        22,
+                        "  timeouts {\n"
+                    ],
+                    [
+                        23,
+                        "    create = \"5m\"\n"
+                    ],
+                    [
+                        24,
+                        "  }\n"
+                    ],
+                    [
+                        25,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/route.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf",
+                "repo_file_path": "/route.tf",
+                "file_line_range": [
+                    17,
+                    25
+                ],
+                "resource": "aws_route.public_internet_gateway",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {},
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-nat-gateways-are-utilized-for-the-default-route",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf"
+            },
+            {
+                "check_id": "CKV2_AWS_35",
+                "bc_check_id": "BC_AWS_NETWORKING_77",
+                "check_name": "AWS NAT Gateways should be utilized for the default route",
+                "check_result": {
+                    "result": "PASSED",
+                    "entity": {
+                        "aws_route_table": {
+                            "private": {
+                                "__end_line__": 40,
+                                "__start_line__": 31,
+                                "tags": [
+                                    {
+                                        "Name": "format(\"%s-private-rt\",my-vpc)",
+                                        "Environment": "dev",
+                                        "Project": "my-project"
+                                    }
+                                ],
+                                "vpc_id": [
+                                    "aws_vpc.main.id"
+                                ],
+                                "__address__": "aws_route_table.private"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "route/*/cidr_block",
+                        "instance_id",
+                        "route/*/instance_id",
+                        "destination_cidr_block"
+                    ]
+                },
+                "code_block": [
+                    [
+                        31,
+                        "resource \"aws_route_table\" \"private\" {\n"
+                    ],
+                    [
+                        32,
+                        "  vpc_id = aws_vpc.main.id\n"
+                    ],
+                    [
+                        33,
+                        "  tags = merge(\n"
+                    ],
+                    [
+                        34,
+                        "    {\n"
+                    ],
+                    [
+                        35,
+                        "      #     \"Name\" = format(\"%s-%s-private-rt-%d\",var.project_name,var.environment,count.index)\n"
+                    ],
+                    [
+                        36,
+                        "      \"Name\" = format(\"%s-private-rt\", var.vpc_name)\n"
+                    ],
+                    [
+                        37,
+                        "    },\n"
+                    ],
+                    [
+                        38,
+                        "    var.tags,\n"
+                    ],
+                    [
+                        39,
+                        "  )\n"
+                    ],
+                    [
+                        40,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/route.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf",
+                "repo_file_path": "/route.tf",
+                "file_line_range": [
+                    31,
+                    40
+                ],
+                "resource": "aws_route_table.private",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {
+                    "Name": "format(\"%s-private-rt\",my-vpc)",
+                    "Environment": "dev",
+                    "Project": "my-project"
+                },
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-nat-gateways-are-utilized-for-the-default-route",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf",
+                "breadcrumbs": {
+                    "tags": [
+                        {
+                            "type": "variable",
+                            "name": "tags",
+                            "path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV2_AWS_35",
+                "bc_check_id": "BC_AWS_NETWORKING_77",
+                "check_name": "AWS NAT Gateways should be utilized for the default route",
+                "check_result": {
+                    "result": "PASSED",
+                    "entity": {
+                        "aws_route": {
+                            "private_nat_gateway": {
+                                "__end_line__": 52,
+                                "__start_line__": 48,
+                                "destination_cidr_block": [
+                                    "0.0.0.0/0"
+                                ],
+                                "gateway_id": [
+                                    "aws_nat_gateway.this.id"
+                                ],
+                                "route_table_id": [
+                                    "aws_route_table.private.id"
+                                ],
+                                "__address__": "aws_route.private_nat_gateway"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "route/*/cidr_block",
+                        "instance_id",
+                        "route/*/instance_id",
+                        "destination_cidr_block"
+                    ]
+                },
+                "code_block": [
+                    [
+                        48,
+                        "resource \"aws_route\" \"private_nat_gateway\" {\n"
+                    ],
+                    [
+                        49,
+                        "  route_table_id         = aws_route_table.private.id\n"
+                    ],
+                    [
+                        50,
+                        "  destination_cidr_block = \"0.0.0.0/0\"\n"
+                    ],
+                    [
+                        51,
+                        "  gateway_id             = aws_nat_gateway.this.id\n"
+                    ],
+                    [
+                        52,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/route.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf",
+                "repo_file_path": "/route.tf",
+                "file_line_range": [
+                    48,
+                    52
+                ],
+                "resource": "aws_route.private_nat_gateway",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {},
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-nat-gateways-are-utilized-for-the-default-route",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf"
+            },
+            {
+                "check_id": "CKV2_AWS_44",
+                "bc_check_id": "BC_AWS_NETWORKING_80",
+                "check_name": "Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic",
+                "check_result": {
+                    "result": "PASSED",
+                    "entity": {
+                        "aws_route_table": {
+                            "public": {
+                                "__end_line__": 11,
+                                "__start_line__": 2,
+                                "tags": [
+                                    {
+                                        "Name": "format(\"%s-public-rt\",my-vpc)",
+                                        "Environment": "dev",
+                                        "Project": "my-project"
+                                    }
+                                ],
+                                "vpc_id": [
+                                    "aws_vpc.main.id"
+                                ],
+                                "__address__": "aws_route_table.public"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "destination_ipv6_cidr_block",
+                        "vpc_peering_connection_id",
+                        "route/*/ipv6_cidr_block",
+                        "route/*/vpc_peering_connection_id",
+                        "destination_cidr_block",
+                        "route/*/cidr_block"
+                    ]
+                },
+                "code_block": [
+                    [
+                        2,
+                        "resource \"aws_route_table\" \"public\" {\n"
+                    ],
+                    [
+                        3,
+                        "  vpc_id = aws_vpc.main.id\n"
+                    ],
+                    [
+                        4,
+                        "\n"
+                    ],
+                    [
+                        5,
+                        "  tags = merge(\n"
+                    ],
+                    [
+                        6,
+                        "    {\n"
+                    ],
+                    [
+                        7,
+                        "      \"Name\" = format(\"%s-public-rt\", var.vpc_name, )\n"
+                    ],
+                    [
+                        8,
+                        "    },\n"
+                    ],
+                    [
+                        9,
+                        "    var.tags,\n"
+                    ],
+                    [
+                        10,
+                        "  )\n"
+                    ],
+                    [
+                        11,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/route.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf",
+                "repo_file_path": "/route.tf",
+                "file_line_range": [
+                    2,
+                    11
+                ],
+                "resource": "aws_route_table.public",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {
+                    "Name": "format(\"%s-public-rt\",my-vpc)",
+                    "Environment": "dev",
+                    "Project": "my-project"
+                },
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-route-table-with-vpc-peering-does-not-contain-routes-overly-permissive-to-all-traffic",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf",
+                "breadcrumbs": {
+                    "tags": [
+                        {
+                            "type": "variable",
+                            "name": "tags",
+                            "path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV2_AWS_44",
+                "bc_check_id": "BC_AWS_NETWORKING_80",
+                "check_name": "Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic",
+                "check_result": {
+                    "result": "PASSED",
+                    "entity": {
+                        "aws_route": {
+                            "public_internet_gateway": {
+                                "__end_line__": 25,
+                                "__start_line__": 17,
+                                "destination_cidr_block": [
+                                    "0.0.0.0/0"
+                                ],
+                                "gateway_id": [
+                                    "aws_internet_gateway.this.id"
+                                ],
+                                "route_table_id": [
+                                    "aws_route_table.public.id"
+                                ],
+                                "timeouts": [
+                                    {
+                                        "create": [
+                                            "5m"
+                                        ]
+                                    }
+                                ],
+                                "__address__": "aws_route.public_internet_gateway"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "destination_ipv6_cidr_block",
+                        "vpc_peering_connection_id",
+                        "route/*/ipv6_cidr_block",
+                        "route/*/vpc_peering_connection_id",
+                        "destination_cidr_block",
+                        "route/*/cidr_block"
+                    ]
+                },
+                "code_block": [
+                    [
+                        17,
+                        "resource \"aws_route\" \"public_internet_gateway\" {\n"
+                    ],
+                    [
+                        18,
+                        "  route_table_id         = aws_route_table.public.id\n"
+                    ],
+                    [
+                        19,
+                        "  destination_cidr_block = \"0.0.0.0/0\"\n"
+                    ],
+                    [
+                        20,
+                        "  gateway_id             = aws_internet_gateway.this.id\n"
+                    ],
+                    [
+                        21,
+                        "\n"
+                    ],
+                    [
+                        22,
+                        "  timeouts {\n"
+                    ],
+                    [
+                        23,
+                        "    create = \"5m\"\n"
+                    ],
+                    [
+                        24,
+                        "  }\n"
+                    ],
+                    [
+                        25,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/route.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf",
+                "repo_file_path": "/route.tf",
+                "file_line_range": [
+                    17,
+                    25
+                ],
+                "resource": "aws_route.public_internet_gateway",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {},
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-route-table-with-vpc-peering-does-not-contain-routes-overly-permissive-to-all-traffic",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf"
+            },
+            {
+                "check_id": "CKV2_AWS_44",
+                "bc_check_id": "BC_AWS_NETWORKING_80",
+                "check_name": "Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic",
+                "check_result": {
+                    "result": "PASSED",
+                    "entity": {
+                        "aws_route_table": {
+                            "private": {
+                                "__end_line__": 40,
+                                "__start_line__": 31,
+                                "tags": [
+                                    {
+                                        "Name": "format(\"%s-private-rt\",my-vpc)",
+                                        "Environment": "dev",
+                                        "Project": "my-project"
+                                    }
+                                ],
+                                "vpc_id": [
+                                    "aws_vpc.main.id"
+                                ],
+                                "__address__": "aws_route_table.private"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "destination_ipv6_cidr_block",
+                        "vpc_peering_connection_id",
+                        "route/*/ipv6_cidr_block",
+                        "route/*/vpc_peering_connection_id",
+                        "destination_cidr_block",
+                        "route/*/cidr_block"
+                    ]
+                },
+                "code_block": [
+                    [
+                        31,
+                        "resource \"aws_route_table\" \"private\" {\n"
+                    ],
+                    [
+                        32,
+                        "  vpc_id = aws_vpc.main.id\n"
+                    ],
+                    [
+                        33,
+                        "  tags = merge(\n"
+                    ],
+                    [
+                        34,
+                        "    {\n"
+                    ],
+                    [
+                        35,
+                        "      #     \"Name\" = format(\"%s-%s-private-rt-%d\",var.project_name,var.environment,count.index)\n"
+                    ],
+                    [
+                        36,
+                        "      \"Name\" = format(\"%s-private-rt\", var.vpc_name)\n"
+                    ],
+                    [
+                        37,
+                        "    },\n"
+                    ],
+                    [
+                        38,
+                        "    var.tags,\n"
+                    ],
+                    [
+                        39,
+                        "  )\n"
+                    ],
+                    [
+                        40,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/route.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf",
+                "repo_file_path": "/route.tf",
+                "file_line_range": [
+                    31,
+                    40
+                ],
+                "resource": "aws_route_table.private",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {
+                    "Name": "format(\"%s-private-rt\",my-vpc)",
+                    "Environment": "dev",
+                    "Project": "my-project"
+                },
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-route-table-with-vpc-peering-does-not-contain-routes-overly-permissive-to-all-traffic",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf",
+                "breadcrumbs": {
+                    "tags": [
+                        {
+                            "type": "variable",
+                            "name": "tags",
+                            "path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV2_AWS_44",
+                "bc_check_id": "BC_AWS_NETWORKING_80",
+                "check_name": "Ensure AWS route table with VPC peering does not contain routes overly permissive to all traffic",
+                "check_result": {
+                    "result": "PASSED",
+                    "entity": {
+                        "aws_route": {
+                            "private_nat_gateway": {
+                                "__end_line__": 52,
+                                "__start_line__": 48,
+                                "destination_cidr_block": [
+                                    "0.0.0.0/0"
+                                ],
+                                "gateway_id": [
+                                    "aws_nat_gateway.this.id"
+                                ],
+                                "route_table_id": [
+                                    "aws_route_table.private.id"
+                                ],
+                                "__address__": "aws_route.private_nat_gateway"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "destination_ipv6_cidr_block",
+                        "vpc_peering_connection_id",
+                        "route/*/ipv6_cidr_block",
+                        "route/*/vpc_peering_connection_id",
+                        "destination_cidr_block",
+                        "route/*/cidr_block"
+                    ]
+                },
+                "code_block": [
+                    [
+                        48,
+                        "resource \"aws_route\" \"private_nat_gateway\" {\n"
+                    ],
+                    [
+                        49,
+                        "  route_table_id         = aws_route_table.private.id\n"
+                    ],
+                    [
+                        50,
+                        "  destination_cidr_block = \"0.0.0.0/0\"\n"
+                    ],
+                    [
+                        51,
+                        "  gateway_id             = aws_nat_gateway.this.id\n"
+                    ],
+                    [
+                        52,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/route.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf",
+                "repo_file_path": "/route.tf",
+                "file_line_range": [
+                    48,
+                    52
+                ],
+                "resource": "aws_route.private_nat_gateway",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {},
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-aws-route-table-with-vpc-peering-does-not-contain-routes-overly-permissive-to-all-traffic",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/route.tf"
+            },
+            {
+                "check_id": "CKV2_AWS_19",
+                "bc_check_id": "BC_AWS_NETWORKING_48",
+                "check_name": "Ensure that all EIP addresses allocated to a VPC are attached to EC2 instances",
+                "check_result": {
+                    "result": "PASSED",
+                    "entity": {
+                        "aws_eip": {
+                            "nat": {
+                                "__end_line__": 28,
+                                "__start_line__": 18,
+                                "depends_on": [
+                                    [
+                                        "aws_internet_gateway.this"
+                                    ]
+                                ],
+                                "domain": [
+                                    "vpc"
+                                ],
+                                "tags": [
+                                    {
+                                        "Name": "format(\"%s-nat-eip\",my-vpc)",
+                                        "Environment": "dev",
+                                        "Project": "my-project"
+                                    }
+                                ],
+                                "__address__": "aws_eip.nat"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "instance_id",
+                        "domain",
+                        "resource_type",
+                        "instance",
+                        "vpc"
+                    ]
+                },
+                "code_block": [
+                    [
+                        18,
+                        "resource \"aws_eip\" \"nat\" {\n"
+                    ],
+                    [
+                        19,
+                        "  domain = \"vpc\"\n"
+                    ],
+                    [
+                        20,
+                        "  tags = merge(\n"
+                    ],
+                    [
+                        21,
+                        "    {\n"
+                    ],
+                    [
+                        22,
+                        "      \"Name\" = format(\"%s-nat-eip\", var.vpc_name)\n"
+                    ],
+                    [
+                        23,
+                        "    },\n"
+                    ],
+                    [
+                        24,
+                        "    var.tags,\n"
+                    ],
+                    [
+                        25,
+                        "  )\n"
+                    ],
+                    [
+                        26,
+                        "\n"
+                    ],
+                    [
+                        27,
+                        "  depends_on = [aws_internet_gateway.this]\n"
+                    ],
+                    [
+                        28,
+                        "}\n"
+                    ]
+                ],
+                "file_path": "/nat.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/nat.tf",
+                "repo_file_path": "/nat.tf",
+                "file_line_range": [
+                    18,
+                    28
+                ],
+                "resource": "aws_eip.nat",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {
+                    "Name": "format(\"%s-nat-eip\",my-vpc)",
+                    "Environment": "dev",
+                    "Project": "my-project"
+                },
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/ensure-that-all-eip-addresses-allocated-to-a-vpc-are-attached-to-ec2-instances",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/nat.tf",
+                "breadcrumbs": {
+                    "tags": [
+                        {
+                            "type": "variable",
+                            "name": "tags",
+                            "path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            }
+        ],
+        "failed_checks": [
+            {
+                "check_id": "CKV_TF_1",
+                "bc_check_id": "BC_CROSS_1",
+                "check_name": "Ensure Terraform module sources use a commit hash",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        1,
+                        "module \"vpc\" {\n"
+                    ],
+                    [
+                        2,
+                        "  #source = \"github.com/terraform-aws-modules/terraform-aws-vpc\"\n"
+                    ],
+                    [
+                        3,
+                        "  #    version = \"~> 3.0\"\n"
+                    ],
+                    [
+                        4,
+                        "  source = \"..\"\n"
+                    ],
+                    [
+                        5,
+                        "  name   = \"vpc\"\n"
+                    ],
+                    [
+                        6,
+                        "}"
+                    ]
+                ],
+                "file_path": "/examples/main.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/examples/main.tf",
+                "repo_file_path": "/examples/main.tf",
+                "file_line_range": [
+                    1,
+                    6
+                ],
+                "resource": "vpc",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.module.generic.RevisionHash",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-git-url-with-commit-hash-revision",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/examples/main.tf"
+            },
+            {
+                "check_id": "CKV_TF_2",
+                "bc_check_id": "BC_CROSS_2",
+                "check_name": "Ensure Terraform module sources use a tag with a version number",
+                "check_result": {
+                    "result": "FAILED",
+                    "evaluated_keys": []
+                },
+                "code_block": [
+                    [
+                        1,
+                        "module \"vpc\" {\n"
+                    ],
+                    [
+                        2,
+                        "  #source = \"github.com/terraform-aws-modules/terraform-aws-vpc\"\n"
+                    ],
+                    [
+                        3,
+                        "  #    version = \"~> 3.0\"\n"
+                    ],
+                    [
+                        4,
+                        "  source = \"..\"\n"
+                    ],
+                    [
+                        5,
+                        "  name   = \"vpc\"\n"
+                    ],
+                    [
+                        6,
+                        "}"
+                    ]
+                ],
+                "file_path": "/examples/main.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/examples/main.tf",
+                "repo_file_path": "/examples/main.tf",
+                "file_line_range": [
+                    1,
+                    6
+                ],
+                "resource": "vpc",
+                "evaluations": null,
+                "check_class": "checkov.terraform.checks.module.generic.RevisionVersionTag",
+                "fixed_definition": null,
+                "entity_tags": null,
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/supply-chain-policies/terraform-policies/ensure-terraform-module-sources-use-tag",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/examples/main.tf"
+            },
+            {
+                "check_id": "CKV2_AWS_11",
+                "bc_check_id": "BC_AWS_LOGGING_9",
+                "check_name": "Ensure VPC flow logging is enabled in all VPCs",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "aws_vpc": {
+                            "main": {
+                                "__end_line__": 14,
+                                "__start_line__": 1,
+                                "cidr_block": [
+                                    "172.31.0.0/16"
+                                ],
+                                "enable_dns_hostnames": [
+                                    true
+                                ],
+                                "enable_dns_support": [
+                                    true
+                                ],
+                                "lifecycle": [
+                                    {
+                                        "prevent_destroy": [
+                                            true
+                                        ]
+                                    }
+                                ],
+                                "tags": [
+                                    {
+                                        "Environment": "dev",
+                                        "Project": "my-project",
+                                        "Name": "format(\"%s-vpc\",my-vpc)"
+                                    }
+                                ],
+                                "__address__": "aws_vpc.main"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "networking",
+                        "resource_type"
+                    ]
+                },
+                "code_block": [
+                    [
+                        1,
+                        "resource \"aws_vpc\" \"main\" {\n"
+                    ],
+                    [
+                        2,
+                        "  cidr_block           = var.vpc_cidr_block\n"
+                    ],
+                    [
+                        3,
+                        "  enable_dns_support   = true\n"
+                    ],
+                    [
+                        4,
+                        "  enable_dns_hostnames = true\n"
+                    ],
+                    [
+                        5,
+                        "  tags = merge(\n"
+                    ],
+                    [
+                        6,
+                        "    var.tags,\n"
+                    ],
+                    [
+                        7,
+                        "    {\n"
+                    ],
+                    [
+                        8,
+                        "      Name = format(\"%s-vpc\", var.vpc_name)\n"
+                    ],
+                    [
+                        9,
+                        "    }\n"
+                    ],
+                    [
+                        10,
+                        "  )\n"
+                    ],
+                    [
+                        11,
+                        "  lifecycle {\n"
+                    ],
+                    [
+                        12,
+                        "    prevent_destroy = true\n"
+                    ],
+                    [
+                        13,
+                        "  }\n"
+                    ],
+                    [
+                        14,
+                        "}"
+                    ]
+                ],
+                "file_path": "/vpc.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/vpc.tf",
+                "repo_file_path": "/vpc.tf",
+                "file_line_range": [
+                    1,
+                    14
+                ],
+                "resource": "aws_vpc.main",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {
+                    "Environment": "dev",
+                    "Project": "my-project",
+                    "Name": "format(\"%s-vpc\",my-vpc)"
+                },
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-logging-policies/logging-9-enable-vpc-flow-logging",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/vpc.tf",
+                "breadcrumbs": {
+                    "cidr_block": [
+                        {
+                            "type": "variable",
+                            "name": "vpc_cidr_block",
+                            "path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_vpc.main",
+                            "path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/vpc.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "type": "variable",
+                            "name": "tags",
+                            "path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            },
+            {
+                "check_id": "CKV2_AWS_12",
+                "bc_check_id": "BC_AWS_NETWORKING_4",
+                "check_name": "Ensure the default security group of every VPC restricts all traffic",
+                "check_result": {
+                    "result": "FAILED",
+                    "entity": {
+                        "aws_vpc": {
+                            "main": {
+                                "__end_line__": 14,
+                                "__start_line__": 1,
+                                "cidr_block": [
+                                    "172.31.0.0/16"
+                                ],
+                                "enable_dns_hostnames": [
+                                    true
+                                ],
+                                "enable_dns_support": [
+                                    true
+                                ],
+                                "lifecycle": [
+                                    {
+                                        "prevent_destroy": [
+                                            true
+                                        ]
+                                    }
+                                ],
+                                "tags": [
+                                    {
+                                        "Environment": "dev",
+                                        "Project": "my-project",
+                                        "Name": "format(\"%s-vpc\",my-vpc)"
+                                    }
+                                ],
+                                "__address__": "aws_vpc.main"
+                            }
+                        }
+                    },
+                    "evaluated_keys": [
+                        "egress/from_port",
+                        "egress/protocol",
+                        "egress/to_port",
+                        "egress/cidr_blocks",
+                        "ingress/self",
+                        "ingress/protocol",
+                        "ingress/to_port",
+                        "resource_type",
+                        "ingress/from_port"
+                    ]
+                },
+                "code_block": [
+                    [
+                        1,
+                        "resource \"aws_vpc\" \"main\" {\n"
+                    ],
+                    [
+                        2,
+                        "  cidr_block           = var.vpc_cidr_block\n"
+                    ],
+                    [
+                        3,
+                        "  enable_dns_support   = true\n"
+                    ],
+                    [
+                        4,
+                        "  enable_dns_hostnames = true\n"
+                    ],
+                    [
+                        5,
+                        "  tags = merge(\n"
+                    ],
+                    [
+                        6,
+                        "    var.tags,\n"
+                    ],
+                    [
+                        7,
+                        "    {\n"
+                    ],
+                    [
+                        8,
+                        "      Name = format(\"%s-vpc\", var.vpc_name)\n"
+                    ],
+                    [
+                        9,
+                        "    }\n"
+                    ],
+                    [
+                        10,
+                        "  )\n"
+                    ],
+                    [
+                        11,
+                        "  lifecycle {\n"
+                    ],
+                    [
+                        12,
+                        "    prevent_destroy = true\n"
+                    ],
+                    [
+                        13,
+                        "  }\n"
+                    ],
+                    [
+                        14,
+                        "}"
+                    ]
+                ],
+                "file_path": "/vpc.tf",
+                "file_abs_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/vpc.tf",
+                "repo_file_path": "/vpc.tf",
+                "file_line_range": [
+                    1,
+                    14
+                ],
+                "resource": "aws_vpc.main",
+                "evaluations": null,
+                "check_class": "checkov.common.graph.checks_infra.base_check",
+                "fixed_definition": null,
+                "entity_tags": {
+                    "Environment": "dev",
+                    "Project": "my-project",
+                    "Name": "format(\"%s-vpc\",my-vpc)"
+                },
+                "caller_file_path": null,
+                "caller_file_line_range": null,
+                "resource_address": null,
+                "severity": null,
+                "bc_category": null,
+                "benchmarks": null,
+                "description": null,
+                "short_description": null,
+                "vulnerability_details": null,
+                "connected_node": null,
+                "guideline": "https://docs.prismacloud.io/en/enterprise-edition/policy-reference/aws-policies/aws-networking-policies/networking-4",
+                "details": [],
+                "check_len": null,
+                "definition_context_file_path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/vpc.tf",
+                "breadcrumbs": {
+                    "cidr_block": [
+                        {
+                            "type": "variable",
+                            "name": "vpc_cidr_block",
+                            "path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/variables.tf",
+                            "module_connection": false
+                        },
+                        {
+                            "type": "resource",
+                            "name": "aws_vpc.main",
+                            "path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/vpc.tf",
+                            "module_connection": false
+                        }
+                    ],
+                    "tags": [
+                        {
+                            "type": "variable",
+                            "name": "tags",
+                            "path": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/variables.tf",
+                            "module_connection": false
+                        }
+                    ]
+                }
+            }
+        ],
+        "skipped_checks": [],
+        "parsing_errors": []
+    },
+    "summary": {
+        "passed": 12,
+        "failed": 4,
+        "skipped": 0,
+        "parsing_errors": 0,
+        "resource_count": 12,
+        "checkov_version": "3.2.406"
+    },
+    "url": "Add an api key '--bc-api-key <api-key>' to see more detailed insights via https://bridgecrew.cloud"
+}

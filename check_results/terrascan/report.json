@@ -1,0 +1,57 @@
+{
+  "results": {
+    "scan_errors": [
+      {
+        "iac_type": "terraform",
+        "directory": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/check_results",
+        "errMsg": "directory '/home/pmm/MyRepos/proj/terraform-aws-cis-network/check_results' has no terraform config files"
+      },
+      {
+        "iac_type": "terraform",
+        "directory": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/check_results/checkov",
+        "errMsg": "directory '/home/pmm/MyRepos/proj/terraform-aws-cis-network/check_results/checkov' has no terraform config files"
+      },
+      {
+        "iac_type": "terraform",
+        "directory": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/check_results/terrascan",
+        "errMsg": "directory '/home/pmm/MyRepos/proj/terraform-aws-cis-network/check_results/terrascan' has no terraform config files"
+      },
+      {
+        "iac_type": "terraform",
+        "directory": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/check_results/trivy",
+        "errMsg": "directory '/home/pmm/MyRepos/proj/terraform-aws-cis-network/check_results/trivy' has no terraform config files"
+      },
+      {
+        "iac_type": "terraform",
+        "directory": "/home/pmm/MyRepos/proj/terraform-aws-cis-network/examples",
+        "errMsg": "failed to build unified config. errors:\n\u003cnil\u003e: Invalid module config directory; Module directory '/tmp/vrj72w' has no terraform config files for module vpc\n"
+      }
+    ],
+    "violations": [
+      {
+        "rule_name": "vpcFlowLogsNotEnabled",
+        "description": "Ensure VPC flow logging is enabled in all VPCs",
+        "rule_id": "AC_AWS_0369",
+        "severity": "LOW",
+        "category": "Logging and Monitoring",
+        "resource_name": "main",
+        "resource_type": "aws_vpc",
+        "module_name": "root",
+        "file": "vpc.tf",
+        "plan_root": "./",
+        "line": 1
+      }
+    ],
+    "skipped_violations": null,
+    "scan_summary": {
+      "file/folder": "/home/pmm/MyRepos/proj/terraform-aws-cis-network",
+      "iac_type": "terraform",
+      "scanned_at": "2025-04-20 00:48:38.587787327 +0000 UTC",
+      "policies_validated": 2,
+      "violated_policies": 1,
+      "low": 1,
+      "medium": 0,
+      "high": 0
+    }
+  }
+}

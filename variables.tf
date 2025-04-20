@@ -1,3 +1,5 @@
+## VPC variables
+# This file contains the variables used in the VPC module.
 variable "aws_region" {
   description = "The AWS region to deploy the resources in"
   type        = string
@@ -12,14 +14,18 @@ variable "vpc_cidr_block" {
 variable "vpc_name" {
   description = "The name of the VPC"
   type        = string
-  default     = "my-vpc" # Change this to your desired VPC name
+  default     = "aws-csi-lab" # Change this to your desired VPC name
 }
 
-variable "tags" {
-  description = "Tags to apply to the VPC"
+variable "default_tags" {
+  description = "Default tags to apply to all resources"
   type        = map(string)
   default = {
     Environment = "dev"
-    Project     = "my-project"
+    Project     = "aws-csi"
+    Audit       = "true"
   }
+
 }
+## Subnet variables
+# This file contains the variables used in the subnet module.

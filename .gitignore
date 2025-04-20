@@ -20,3 +20,5 @@ terraform.rc
 
 # Ignore Terraform working directory
 .terraform/
+
+.external_modules/
