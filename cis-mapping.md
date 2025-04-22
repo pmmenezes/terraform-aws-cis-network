@@ -1,2 +1,2 @@
 Controle CIS	Descrição	Implementado em	Branch	Ferramentas
-2.1	Ensure VPC Flow Logging is enabled	modules/vpc	cis-2.1	Checkov, Trivy, Terrascan
+3.7	Ensure VPC Flow Logging is enabled	modules/vpc	cis-aws-v5.0_3.7-vpc-flow-logs-enabled	Checkov, Trivy, Terrascan
